@@ -1,6 +1,8 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 const CheckLoginStatus = require('./Routes/GET/CheckLoginStatus.js');
+const Register = require('./Routes/POST/Register.js');
 const app = express();
 const PORT = 4000;
 
@@ -11,7 +13,15 @@ app.get('/', (req, res) => {
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: ['POST', 'PUT', 'DELETE', 'GET'],
+    allowedHeaders: ['Content-Type'],
+    credentials: true
+}))
 app.use(CheckLoginStatus);
+app.use(Register);
+
 
 
 app.listen(PORT, (error) => {

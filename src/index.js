@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const CheckLoginStatus = require('./Routes/GET/CheckLoginStatus.js');
 const Register = require('./Routes/POST/Register.js');
+const Login = require('./Routes/POST/Login.js');
 const app = express();
 const PORT = 4000;
 
@@ -21,6 +22,7 @@ app.use(cors({
 }))
 app.use(CheckLoginStatus);
 app.use(Register);
+app.use(Login);
 
 
 

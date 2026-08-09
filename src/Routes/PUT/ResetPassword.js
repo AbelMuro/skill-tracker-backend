@@ -7,7 +7,7 @@ const db = require('../../Config/MySQL/db.js');
 router.put('/reset-password', async (req, res) => {
     try{
         const {resetToken, password} = req.body;
-        const hashedToken = crypto.randomBytes(32).toString('hex');
+        const hashedToken = crypto.createHash('sha256').update(resetToken).digest('hex');
 
         const [accounts] = await db.execute(
             'SELECT * FROM accounts WHERE resetToken = ?',

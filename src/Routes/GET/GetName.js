@@ -8,7 +8,6 @@ router.get('/get-name', async (req, res) => {
     try{
         const accountToken = req.cookies.accountToken;
         const JWT_SECRET = process.env.JWT_SECRET;
-        console.log(req.cookies);
 
         if(!accountToken) 
             return res.status(401).send("Third-party-cookies and/or cross-site-tracking are not enabled in the browser");

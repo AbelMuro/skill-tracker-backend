@@ -7,6 +7,8 @@ const Login = require('./Routes/POST/Login.js');
 const SendResetLink = require('./Routes/POST/SendResetLink.js');
 const ResetPassword = require('./Routes/PUT/ResetPassword.js');
 const GetName = require('./Routes/GET/GetName.js');
+const CreateSession = require('./Routes/POST/CreateSession.js');
+const GetSkills = require('./Routes/GET/GetSkills.js');
 const app = express();
 const PORT = 4000;
 
@@ -29,6 +31,8 @@ app.use(Login);
 app.use(SendResetLink);
 app.use(ResetPassword);
 app.use(GetName);
+app.use(CreateSession);
+app.use(GetSkills);
 
 app.listen(PORT, (error) => {
     if(error) {
